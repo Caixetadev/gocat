@@ -5,7 +5,7 @@
 make a clone of the repository
 
 ```
-git clone https://github.com/Caixetadev/gocat
+git clone https://github.com/Caixetadev/gocat.git
 ```
 
 now enter the folder
