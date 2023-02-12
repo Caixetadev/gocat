@@ -2,15 +2,24 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 )
 
 func main() {
 	fname := os.Args[1]
-	abs_fname, _ := filepath.Abs(fname)
+	abs_fname, errAbs := filepath.Abs(fname)
 
-	seila, _ := os.ReadFile(abs_fname)
+	if errAbs != nil {
+		log.Fatal(errAbs.Error())
+	}
 
-	fmt.Println(string(seila))
+	file, err := os.ReadFile(abs_fname)
+
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
+	fmt.Println(string(file))
 }
